@@ -59,6 +59,13 @@ kubectl get po -A
 ![ms_03](./images/ms_03.png)
 
 ```zsh
+# minikube 리소스 목록에서 모든 pod 정보 확인 
+minikube kubectl -- get po -A
+```
+
+![ms_00](./images/ms_00.png)
+
+```zsh
 # Dashboard 지원
 minikube dashboard
 ```
@@ -68,43 +75,42 @@ minikube dashboard
 #### 4. Deploy applications
 
 ```zsh
-# Sample Deployment 생성 / 8080 port 
-kubectl create deployment catnip-minikube --image=kjhun/catnip
-kubectl expose deployment catnip-minikube --type=NodePort --port=8080
+# Sample Deployment 생성 / 80 port 
+kubectl create deployment quasar-minikube --image=kjhun/quasar-docker:0.0.1
+kubectl expose deployment quasar-minikube --type=NodePort --port=80
 ```
 
 ![ms_05](./images/ms_05.png)
 
 ```zsh
 # catnip-minikube Deployment 실행 확인 
-kubectl get services catnip-minikube
+kubectl get services quasar-minikube
 ```
 
 ![ms_06](./images/ms_06.png)
 
 ```zsh
 # minikube로 웹 브라우저 실행
-minikube service catnip-minikube
+minikube service quasar-minikube
 ```
 
 ![ms_07](./images/ms_07.png)
 
 ```zsh
 # kubectl을 사용하요 포트포워딩 
-kubectl port-forward service/catnip-minikube 7080:8080
+kubectl port-forward service/quasar-minikube 9080:80
 ```
 
 ![ms_08](./images/ms_08.png)
 
-<http://localhost:7080/>
-![ms_09](./images/ms_09.png)
+<http://localhost:9080/>
 
-❓an error occurred forwarding 7080 ... 🤔
+![ms_09](./images/ms_09.png)
 
 ```zsh
 # LoadBalancer Deployment
 kubectl create deployment balanced --image=k8s.gcr.io/echoserver:1.4
-kubectl expose deployment balanced --type=LoadBalancer --port=8080
+kubectl expose deployment balanced --type=LoadBalancer --port=80
 ```
 
 ![ms_10](./images/ms_10.png)
@@ -121,7 +127,7 @@ minikube tennel
 kubectl get services balanced
 ```
 
-*EXTERNAL-IP:8080 에서 Deployment 사용가능*
+*EXTERNAL-IP:9080 에서 Deployment 사용가능*
 ![ms_12](./images/ms_12.png)
 
 #### 5. Cluster 관리
