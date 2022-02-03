@@ -1,4 +1,4 @@
-# Minikube_start
+# Minikube start
 
 ***What you’ll need***
 
@@ -157,6 +157,6 @@ minikube delete --all
 
 ---
 
-### Reference
+## Reference
 
 * [Minikube start](https://minikube.sigs.k8s.io/docs/start/)
