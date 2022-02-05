@@ -1,4 +1,4 @@
-# Handbook
+# Handbook 1
 
 ## Basic controls
 
@@ -125,6 +125,32 @@ minikube start --extra-config=apiserver.service-node-port-range=1-65535
 
 * 인터넷에 서비스를 노출하는 표준 방법
 * 각 서비스 자체 IP 주소를 얻을 수 있음
+
+```zsh
+# create k8s deployment
+kubectl create deployment quasar-lb --image=kjhun/quasar-docker:0.0.1
+
+# expose LoadBalance type k8s service
+kubectl expose deployment quasar-lb --type=LoadBalancer --port=80
+
+# check external IP
+kubectl get svc
+```
+
+![hb_06](./images/hb_06.png)
+
+```zsh
+# LoadBalance 유형의 서비스 노출 
+# 별도의 터미널 창에서 실행
+minikube tunnel
+
+# check external IP
+kubectl get svc
+```
+
+![hb_07](./images/hb_07.png)
+![hb_08](./images/hb_08.png)
+![hb_09](./images/hb_09.png)
 
 ---
 
