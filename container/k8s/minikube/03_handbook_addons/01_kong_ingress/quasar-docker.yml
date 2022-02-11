@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quasar-docker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quasar-docker-app
+  template:
+    metadata:
+      name: quasar-docker-pod
+      labels:
+        app: quasar-docker-app
+    spec:
+      containers:
+        - name: quasar-docker-container
+          image: kjhun/quasar-docker:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: regcred
