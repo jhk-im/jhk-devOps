@@ -117,7 +117,7 @@ kubectl expose deployment balanced --type=LoadBalancer --port=80
 
 ```zsh
 # balanced deployment를 위한 routable IP 생성
-minikube tennel
+minikube tunnel
 ```
 
 ![ms_11](./images/ms_11.png)
