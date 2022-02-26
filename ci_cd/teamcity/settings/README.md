@@ -10,6 +10,20 @@ docker pull --platform linux/amd64 jetbrains/teamcity-server
 docker run --platform linux/amd64 -it --name teamcity-server-instance -v /data/teamcity_server/datadir -v opt/teamcity/logs -p 8111 jetbrains/teamcity-server
 ```
 
-### References
+## MacOS settings
+
+```zsh
+# tar.gz 다운로드 압축해제
+cd TeamCity/bin
+
+sudo sh runAll.sh start
+#  sudo sh runAll.sh stop
+```
+
+<http://localhost:8111/>
+
+---
+
+## References
 
 <https://blog.naver.com/jetbrains_korea/221494861621>
