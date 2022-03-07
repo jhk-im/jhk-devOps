@@ -1,16 +1,29 @@
-# TeamCity
+# teamcity-docker
 
-## TeamCity란?
+## Docker settings
 
-범용 CI/CD 솔루션으로 모든 종류의 워크플로 및 개발 사례에 맞는 최상의 유연성 제공
+```zsh
+docker pull --platform linux/amd64 jetbrains/teamcity-server
 
-- 프로젝트 개요를 통한 빌드 상태/원인 확인 및 최신 빌드 아티팩트 다운로드 수행
-- 빌드 종속성을 통해 빌드, 테스트, 배포된 방식을 한눈에 확인
-- 빌드 로그를 통해 빌드 및 테스트에 대한 실시간 뷰 제공
-- 테스트 기록을 통해 프로젝트의 모든 테스트 성과 분석 -> 팀원에게 검토작업 할당
+# /data/teamcity_server/datadir : 프로젝트 설정과 빌드 결과를 저장하는 호스트 머신 디렉토리
+# /opt/teamcity/logs : 서버 로그를 저장하는 호스트 시스템 디렉토리
+docker run --platform linux/amd64 -it --name teamcity-server-instance -v /data/teamcity_server/datadir -v opt/teamcity/logs -p 8111 jetbrains/teamcity-server
+```
+
+## MacOS settings
+
+```zsh
+# tar.gz 다운로드 압축해제
+cd TeamCity/bin
+
+sudo sh runAll.sh start
+#  sudo sh runAll.sh stop
+```
+
+<http://localhost:8111/>
 
 ---
 
-### References
+## References
 
-<https://www.jetbrains.com/ko-kr/teamcity/>
+<https://blog.naver.com/jetbrains_korea/221494861621>
