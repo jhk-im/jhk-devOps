@@ -1,0 +1,4 @@
+1. Route53 - 호스팅 영역
+2. 도메인 선택
+3. 레코드 편집
+4. 로드밸런서 -> dualstack.k8s-istiosys-ingressa ... 선택 후 저장
