@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-sample-deployment
+  labels:
+    app: app-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-sample
+  template:
+    metadata:
+      labels:
+        app: app-sample
+    spec:
+      containers:
+        - name: app-sample
+          image: kustomization-eks-repository
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000

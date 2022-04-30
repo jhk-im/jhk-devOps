@@ -4,8 +4,6 @@
 
 ![AWS Diagram](readme/aws-diagram.jpg)
 
----
-
 ## Bastion
 
 * 보안을 위해 고안된 호스트로 외부 네트워크와 내부 네트워크 사이 일종의 게이트웨이 역할을 수행
