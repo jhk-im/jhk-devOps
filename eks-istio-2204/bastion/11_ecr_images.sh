@@ -1,10 +1,3 @@
-#1. ECR repository 생성 -> idol-live-admin
-#2. local에서 docker build 
-#3. ecr login 
-#aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
-#4. docker tag buidimage:latest 931620604955.dkr.ecr.ap-northeast-2.amazonaws.com/idol-live-admin:0.0.1
-#5. docer push 931620604955.dkr.ecr.ap-northeast-2.amazonaws.com/idol-live-admin:0.0.1
-
 cat > pod_admin.yaml << EOF
 ---
 apiVersion: apps/v1
