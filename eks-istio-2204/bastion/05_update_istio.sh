@@ -15,18 +15,18 @@ spec:
       enabled: true
       k8s:
         hpaSpec:
-          minReplicas: 1
+          minReplicas: 2
     ingressGateways:
     - name: istio-ingressgateway
       enabled: true
       k8s:
         hpaSpec:
-          minReplicas: 1
+          minReplicas: 2
         service:
           type: NodePort # ingress gateway 의 NodePort 사용
         serviceAnnotations:  # Health check 관련 정보
           alb.ingress.kubernetes.io/healthcheck-path: /healthz/ready
-          alb.ingress.kubernetes.io/healthcheck-port: "0000" # 위에서 얻은 port number를 사용
+          alb.ingress.kubernetes.io/healthcheck-port: "" # 위에서 얻은 port number를 사용
     pilot:
       enabled: true
       k8s:

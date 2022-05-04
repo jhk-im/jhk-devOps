@@ -7,7 +7,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:ap-northeast-2:000000000000:certificate/***"
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:{AWS_REGION}:{AWS_ACCOUNT_ID}:certificate/{AWS_TLS_CERTIFICATE}"
     alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
 spec:
   rules:
