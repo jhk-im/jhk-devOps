@@ -79,5 +79,15 @@ images:
     newTag: image_latest
 EOF
 
+# Kustomize
 kustomize edit set image kustomization-eks-repository={AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-image:tag
 kustomize build . | kubectl apply -k ./
+kubectl delete -k ./
+
+# Service
+kubectl get svc
+kubectl expose deployment {DEPLOYMENT_NAME} --type=LoadBalancer --name={SERVICE_NAME}
+kubectl delete services {SERVICE_NAME}
+
+# Log
+kubectl logs -p {POD_NAME}
