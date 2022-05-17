@@ -80,7 +80,7 @@ images:
 EOF
 
 # Kustomize
-kustomize edit set image kustomization-eks-repository={AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-image:tag
+kustomize edit set image kustomization-eks-repository={IMAGEURL}
 kustomize build . | kubectl apply -k ./
 kubectl delete -k ./
 
@@ -91,3 +91,4 @@ kubectl delete services {SERVICE_NAME}
 
 # Log
 kubectl logs -p {POD_NAME}
+kubectl -n istio exec --stdin --tty {POD_NAME} -- /bin/bash

@@ -1,4 +1,4 @@
-cat > istio-vs-test.yaml << EOF
+cat > sample-vs.yaml << EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -13,13 +13,16 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /
+        prefix: /web/
     route:
     - destination:
-        host: service-2048
+        host: sample-front
         port:
           number: 80
----
+EOF
+kubectl apply -f sample-vs.yaml
+
+cat > sample-gateway.yaml << EOF
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -35,7 +38,6 @@ spec:
       protocol: HTTP
     hosts:
     - "*"
----
 EOF
 
-kubectl apply -f istio-vs-test.yaml
+kubectl apply -f sample-gateway.yaml

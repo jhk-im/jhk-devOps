@@ -1,10 +1,10 @@
 # cluster 생성
 eksctl create cluster \
 --version 1.21 \
---name eks-sample \
+--name dev-unews \
 --node-private-networking \
 --region ap-northeast-2 \
---node-type t3.medium \
+--node-type m5.xlarge \
 --nodes 2 \
 --with-oidc \
 --ssh-access \

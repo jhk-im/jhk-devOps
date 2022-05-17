@@ -30,7 +30,7 @@ kubectl proxy --port=8080 --address=0.0.0.0 --disable-filter=true &
 sudo yum install jq
 
 #11. token 생성
-aws eks get-token --cluster-name eks-idol-live-dev | jq -r '.status.token'
+aws eks get-token --cluster-name {clustername} | jq -r '.status.token'
 
 #12. cloudfront dashboard에 생성된 token 입력하여 대쉬보드 접속
 
